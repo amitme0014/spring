@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/util 
+     http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<context:component-scan base-package="training.spel1" />
+	
+	<util:properties id="userprops" location="classpath:user.properties" />
+	
+	<bean id="u" class="training.spel1.UserBean">
+	<property name="userId" value="#{userprops.userid}"/>
+	<property name="username" value="#{userprops.username}"/>
+	<property name="password" value="#{userprops.password}"/>
+	</bean>
+	
+	<!--
+	Note: To use SpEL in annotation, you must register your component 
+	via annotation (See the bean class). If you register your bean in XML 
+	and define @Value in Java class, the @Value will fail to execute.
+    -->
+    
+</beans>

@@ -1,0 +1,2 @@
+create sequence donorId_seq;
+create table donor(donorid number,donorname varchar2(30),phonenumber varchar2(12),address varchar2(50),amount varchar2(10),donationdate date);

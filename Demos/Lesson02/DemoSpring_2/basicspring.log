@@ -1,0 +1,3 @@
+2014-01-31 11:30:36,343 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [currencyconverter.xml]
+2014-02-07 11:22:56,470 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [currencyconverter.xml]
+2015-06-02 10:02:10,926 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [currencyconverter.xml]

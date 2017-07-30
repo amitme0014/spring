@@ -1,0 +1,82 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/util 
+     http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<context:annotation-config/>
+	
+    <context:component-scan base-package="com.igate.spel"/>
+    
+    <util:list id="cities" >
+    <bean class="com.igate.spel.City"
+         p:name="Chicago" p:state="IL" p:population="100000"/>
+    <bean class="com.igate.spel.City"
+         p:name="Atlanta" p:state="GA" p:population="200002"/>
+    <bean class="com.igate.spel.City"
+          p:name="Dallas" p:state="TX" p:population="300000"/>
+   </util:list>
+    	<bean id="employee" class="com.igate.spel.Employee">
+
+	    <property name="eid" value="#{10*20}" />
+		<!--<property name="eid" value="#{T(java.lang.Math).random() * 100}"/>
+		 <property name="enm" value="#{person.firstName}" />  -->
+		<property name="enm" value="#{person.getLastName()}" />
+		<property name="esl" value="#{12345.56}" />
+		<property name="eage" value="#{person.age}" />
+		<property name="eCity" value="#{cities[2]}" />
+	</bean>
+	
+
+	<bean id="person" class="com.igate.spel.Person">
+		<property name="firstName" value="mohan" />
+		<property name="lastName" value="kumar" />
+		<property name="age" value="28" />
+		
+	</bean>
+	
+	
+	<bean id="city1" class="com.igate.spel.City">
+		<property name="name" value="Bangalore" />
+		<property name="population" value="6000000" />
+		<property name="state" value="Karnatake" />
+	</bean>
+	<bean id="city2" class="com.igate.spel.City">
+		<property name="name" value="Mysore" />
+		<property name="population" value="1000000" />
+		<property name="state" value="Karnatake" />
+	</bean>
+	<bean id="city3" class="com.igate.spel.City">
+		<property name="name" value="Pune" />
+		<property name="population" value="5000000" />
+		<property name="state" value="Maharashtra" />
+	</bean>
+	<bean id="city4" class="com.igate.spel.City">
+		<property name="name" value="Chennai" />
+		<property name="population" value="8000000" />
+		<property name="state" value="Tamilnadu" />
+	</bean>
+	
+	<bean id="cList" class="com.igate.spel.CityList">
+	  <property name="cityList">
+	  
+	  
+	   <list>
+	    
+	     <value>#{city1}</value>
+	     <value>#{city2}</value>
+	     <value>#{city3}</value>
+	     <value>#{city4}</value>
+	   </list>
+	  
+	 </property>
+    </bean>
+    
+   
+</beans>
